@@ -42,16 +42,22 @@ int main(int argc, char *argv[])
 	// Get the first argument
 	std::string argumentAsString = argv[1];
 	const char* argumentAsCharArray = argumentAsString.c_str();
+	
+	if ((argumentAsCharArray[0] >= 'a' && argumentAsCharArray[0] < 'z')|| (argumentAsCharArray[0] >= 'A' && argumentAsCharArray[0] < 'Z')) std::cout << "really?" << std::endl;
 
-	//number = argv[1]; // No
-	//should use atoi?
-	// or std::stoi?
+	else {
 
-	std::cout << argumentAsString << std::endl; // i think this should be removed
+		number = std::stoi(argumentAsString);
+			//number = argv[1]; // No
+			//should use atoi?
+			// or std::stoi?
 
-	// --------------- stop
+			std::cout << number << std::endl; // i think this should be removed
 
-	printOddOrEven(number);
+			// --------------- stop
+
+			printOddOrEven(number);
+	}
 
 	return 0;
 }
