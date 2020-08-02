@@ -17,6 +17,7 @@ void printOddOrEven(int number)
 
 int main(int argc, char *argv[])
 {
+	int count_to = 0;
 	int number = -13;
 
 	// What is this program expected to do?
@@ -43,11 +44,15 @@ int main(int argc, char *argv[])
 	std::string argumentAsString = argv[1];
 	const char* argumentAsCharArray = argumentAsString.c_str();
 	
-	if ((argumentAsCharArray[0] >= 'a' && argumentAsCharArray[0] < 'z')|| (argumentAsCharArray[0] >= 'A' && argumentAsCharArray[0] < 'Z')) std::cout << "really?" << std::endl;
+	//lets make it a bit fancier
+	for(count_to = 0 ; count_to < strlen(argumentAsCharArray) ; count_to++)
+	{
 
-	else {
+		if ((argumentAsCharArray[count_to] >= 'a' && argumentAsCharArray[count_to] < 'z') || (argumentAsCharArray[count_to] >= 'A' && argumentAsCharArray[count_to] < 'Z')) std::cout << "really?" << std::endl;
 
-		number = std::stoi(argumentAsString);
+		else {
+
+			number = std::stoi(argumentAsString);
 			//number = argv[1]; // No
 			//should use atoi?
 			// or std::stoi?
@@ -57,7 +62,9 @@ int main(int argc, char *argv[])
 			// --------------- stop
 
 			printOddOrEven(number);
-	}
 
+		
+		}
+	} 
 	return 0;
 }

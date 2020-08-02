@@ -1,10 +1,29 @@
 #include <iostream>
-
+#include <string>
+#include <math.h>
 bool isArmstrongNumber(int number)
 {
 	// TODO: implement some functionality to see if this number is an armstrong number
+	int result = 0;
+	int iteration = 0;
+	int originalNumber = number;
 
-	return false;
+	while (originalNumber != 0)
+	{
+		//every iteration contains the last digit of the original number
+		iteration = originalNumber % 10;
+		
+		//let's put every iteration in a result parameter 
+		result += pow(iteration, 3);
+
+		//eliminate the processed digit from the original number
+		originalNumber = originalNumber / 10;
+	}
+
+	if (result == number)
+		return true;
+	else		
+		return false;
 }
 
 void printIsArmstrong(int number)
@@ -50,9 +69,18 @@ int main(int argc, char *argv[])
 	int readNumber = 0;
 	// Get the first argument
 	std::string argumentAsString = argv[1];
+	const char* argumentAsCharArray = argumentAsString.c_str();
 	
-	// TODO: read number / cast to integer
+	if ((argumentAsCharArray[0] >= 'a' && argumentAsCharArray[0] < 'z') ||
+		(argumentAsCharArray[0] >= 'A' && argumentAsCharArray[0] < 'Z'))
+		std::cout << "Nope. Try again :) " << std::endl;
 
-	printIsArmstrong(readNumber);
+	else
+	{
+		readNumber = std::stoi(argumentAsString);
+		// TODO: read number / cast to integer
+		printIsArmstrong(readNumber);
+	}
+
 	return 0;
 }
