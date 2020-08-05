@@ -52,8 +52,11 @@ struct Book
 void setBookName(Book& book, std::string name)
 {
 	strncpy(book.title, name.c_str(), MAX_TITLE_LEN);
+<<<<<<< HEAD
 	// overwrite the last character
 	book.title[MAX_TITLE_LEN - 1] = '\0';
+=======
+>>>>>>> upstream/master
 }
 
 int main()
